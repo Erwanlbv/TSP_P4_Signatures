@@ -30,3 +30,19 @@ def first_half(dataset):
     return new_dataset
 
 
+def get_eval_dataset(complete_dataset, train_dataset):
+
+    # CETTE METHODE FONCTIONNE UNIQUEMENT PARCE QUE TOUS LES ELEMENTS DE LA BASE DE DONNEES SONT DIFFERENTS
+    # Vérification avec np.sum(np.unique(dataset.flatten(), return_counts=True)[1]) = 2500
+    # soit le nombre d'éléments de complete_dataset.
+
+    indices = []
+    for i, complexity in enumerate(complete_dataset):
+        if not complexity in train_dataset:
+             indices.append(i)
+
+    return indices
+
+
+
+
