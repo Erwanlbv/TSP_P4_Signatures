@@ -3,24 +3,28 @@
 import numpy as np
 
 from variables import *
-from dataset_gen import first_1250_dataset, first_half, random_dataset
+from dataset_gen import firsts_dataset, half_dataset, random_dataset
 from clustering_methods import kmeans
 
-COMPLETE_DATASET = fich_numpy_24
+COMPLETE_DATASET = fich_numpy_24.flatten()
 
 class Bdd():
 
     def __init__(self, method=None):
 
-        if method == '1250':
-            self.data_train, self.data_eval = first_1250_dataset(dataset=COMPLETE_DATASET)
+        if method == 'firsts':
+            self.data_train, self.data_eval = firsts_dataset(dataset=COMPLETE_DATASET)
         elif method == 'half':
-            self.data_train, self.data_eval = first_1250_dataset(dataset=COMPLETE_DATASET)
+            self.data_train, self.data_eval = half_dataset(dataset=COMPLETE_DATASET)
         elif method == 'random':
-            self.data_train, self.data_eval = first_1250_dataset(dataset=COMPLETE_DATASET)
+            self.data_train, self.data_eval = random_dataset(dataset=COMPLETE_DATASET)
 
         else:
             print('nom de méthode donnée incorrect')
+
+        # On adapte les bases de données à Kmeans
+        self.data_train = self.data_train.reshape(len(self.data_train), -1)
+        self.data_eval = self.data_eval.reshape(len(self.data_eval), -1)
 
         self.km = kmeans(self.data_train, n_clusters=3, random_state=0)
 

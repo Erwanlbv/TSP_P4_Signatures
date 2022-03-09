@@ -9,9 +9,9 @@ from clf import decision_tree, random_fo
 COMPLETE_DATASET = np.copy(fich_24)
 
 
-def train_clf(data_train, data_labels):
-    tree_clf = decision_tree(data_train, data_labels)
-    rand_fo_clf = random_fo(data_train, data_labels)
+def train_clf(train_data, train_labels):
+    tree_clf = decision_tree(train_data, train_labels)
+    rand_fo_clf = random_fo(train_data, train_labels)
 
     # Pour le lien avec la partie II
     total_km_clf = kmeans(COMPLETE_DATASET, n_clusters=3)
@@ -19,11 +19,11 @@ def train_clf(data_train, data_labels):
     return tree_clf, rand_fo_clf, total_km_clf
 
 
-def predict(clfs, data_eval):
+def predict(clfs, eval_data):
     tree_clf, rand_fo_clf, total_km_clf = clfs
 
-    tree_preds = tree_clf.predict(data_eval)
-    rand_fo_preds = rand_fo_clf.predict(data_eval)
+    tree_preds = tree_clf.predict(eval_data)
+    rand_fo_preds = rand_fo_clf.predict(eval_data)
 
     # Pour le lien avec la partie II :
     total_km_preds = total_km_clf.labels_

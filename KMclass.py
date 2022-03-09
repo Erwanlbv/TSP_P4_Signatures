@@ -2,7 +2,7 @@
 
 
 from clustering_methods import kmeans
-from Partie_III.dataset_gen import first_1250_dataset, first_half, random_dataset
+from Partie_III.dataset_gen import firsts_dataset, half_dataset, random_dataset
 
 
 class KMclassificator():
@@ -13,8 +13,8 @@ class KMclassificator():
 
         self.dataset = dataset.flatten()
 
-        self.first_1250_dataset = first_1250_dataset(self.dataset)
-        self.first_half_dataset = first_half(self.dataset)
+        self.first_1250_dataset = firsts_dataset(self.dataset)
+        self.first_half_dataset = half_dataset(self.dataset)
 
         self.random_dataset_initialized = False
         self.random_dataset = None
