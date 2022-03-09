@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-from clustering_methods import kmeans_clust, kmedoids_clust, spectral_clust
+from clustering_methods import kmeans
 from scores import compute_scores
 from variables import *
 
@@ -31,7 +31,7 @@ def kmeans_visualisation():
         #    scores[i - MIN_CLUSTERS] = compute_scores(numpy_moy_for_sklearn, km, iner_bool, sil_bool, davies_bool)
         #display_res('Kmeans Clustering', scores)
 
-        km = kmeans_clust(prep_for_sklearn, 3)
+        km = kmeans(prep_for_sklearn, 3)
         display_classification(km, sign_moy_vect, n_gauss)
 
 
@@ -43,8 +43,9 @@ def kmedoids_visualization():
         scores = np.zeros((MAX_CLUSTERS + 1 - MIN_CLUSTERS, 3))
 
         for i in range(MIN_CLUSTERS, MAX_CLUSTERS + 1):
-            kmedoids = kmedoids_clust(numpy_moy_for_sklearn, i)
-            scores[i - MIN_CLUSTERS] = compute_scores(numpy_moy_for_sklearn, kmedoids, iner_bool, sil_bool, davies_bool)
+            pass
+            #kmedoids = kmedoids_clust(numpy_moy_for_sklearn, i)
+            #scores[i - MIN_CLUSTERS] = compute_scores(numpy_moy_for_sklearn, kmedoids, iner_bool, sil_bool, davies_bool)
 
         display_res('Kmedoids Clustering', scores)
 
@@ -57,8 +58,9 @@ def spectral_clustering():
         scores = np.zeros((MAX_CLUSTERS + 1 - MIN_CLUSTERS, 3))
 
         for i in range(MIN_CLUSTERS, MAX_CLUSTERS + 1):
-            spect_clus = spectral_clust(numpy_moy_for_sklearn, i)
-            scores[i - MIN_CLUSTERS] = compute_scores(numpy_moy_for_sklearn, spect_clus, iner_bool, sil_bool, davies_bool)
+            pass
+            #spect_clus = spectral_clust(numpy_moy_for_sklearn, i)
+            #scores[i - MIN_CLUSTERS] = compute_scores(numpy_moy_for_sklearn, spect_clus, iner_bool, sil_bool, davies_bool)
 
         display_res('Spectral Clustering', scores)
 
