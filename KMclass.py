@@ -2,7 +2,7 @@
 
 
 from clustering_methods import kmeans
-from Partie_III.dataset_prepro import first_1250_dataset, first_half, random_dataset
+from Partie_III.dataset_gen import first_1250_dataset, first_half, random_dataset
 
 
 class KMclassificator():
