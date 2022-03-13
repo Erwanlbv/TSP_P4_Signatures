@@ -8,6 +8,7 @@ from clustering_methods import kmeans
 
 COMPLETE_DATASET = fich_numpy_24.flatten()
 
+
 class Bdd():
 
     def __init__(self, method=None):

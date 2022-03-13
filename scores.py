@@ -2,7 +2,7 @@ import numpy as np
 from sklearn.metrics import davies_bouldin_score, silhouette_score
 
 
-def compute_scores(dataset, km, inertia_bool, sil_bool, davies_bool):
+def compute_scores(dataset, km, inertia_bool=False, sil_bool=False, davies_bool=False):
     output = [None, None, None]
 
     if inertia_bool:

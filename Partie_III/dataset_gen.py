@@ -33,9 +33,6 @@ def random_dataset(dataset):
     return new_dataset, eval_dataset
 
 
-
-
-
 def get_eval_dataset(complete_dataset, train_dataset):
 
     # CETTE METHODE FONCTIONNE UNIQUEMENT PARCE QUE TOUS LES ELEMENTS DE LA BASE DE DONNEES SONT DIFFERENTS
