@@ -182,7 +182,7 @@ number_labels = np.random.rand(len(kmeans.labels_))
 for i in range(len(kmeans.labels_)):
     number_labels[i] = reference_labels[kmeans.labels_[i]]
 #On donne l'accuracy
-print('Accuracy score: {}'.format(accuracy_score(number_labels, y_test)))
+print('Accuracy scores: {}'.format(accuracy_score(number_labels, y_test)))
 print('\n')
 
 ####Matrice de confusion
