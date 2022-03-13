@@ -20,7 +20,7 @@ df3 = df3.transpose()
 
 ##Faire une liste de listes pour les différentes signatures
 Df = []
-for i in range(0,100):
+for i in range(0, 100):
     A = []
     for j in range(0, 25):
         A.append(pd.read_csv(
@@ -40,31 +40,6 @@ for i in range(0,100):
 
 
 ###Extraire les coordonnées
-def coordonnées_X_Y(id_personne, signature):
-    X=[]
-    Y=[]
-    Air=[]
-    for i in range (len(Df[id_personne][signature])):
-        X.append(Df[id_personne][signature][0][i])
-        if Df[id_personne][signature][2][i]==0:
-            Air.append(Df[id_personne][signature][1][i])
-            Y.append(None)
-        else:
-            Y.append(Df[id_personne][signature][1][i])
-            Air.append(None)
-    return X,Y,Air
-
-###Tracer une signature en distinguant les cas où le stylet est en l'air
-def tracer_signature(id_personne, signature):
-    fig,ax=plt.subplots()
-    X,Y,Air=coordonnées_X_Y(id_personne,signature)
-    ax.plot(X,Y, color="black")
-    ax.plot(X,Air, linestyle="--", linewidth="5", color="b")
-    ax.set_title( str(signature)+ "ème signature de l'individu: " + str(id_personne))
-    ax.set_ylabel("Coordonnée y")
-    ax.set_xlabel("Coordonnée x")
-    fig.show()
-    plt.pause(10)
 
 #tracer_signature(7,12)
 
